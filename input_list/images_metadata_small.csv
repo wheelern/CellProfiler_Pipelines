@@ -1,8 +1,8 @@
 URL_RawImage,URL_WellMask,PathName_RawImage,PathName_WellMask,FileName_RawImage,FileName_WellMask,Metadata_Date,Metadata_FileLocation,Metadata_Plate,Metadata_Researcher,Metadata_Well
-file:/input/20210521-p01-KJG_A01.TIF,file:/masks/well_mask.png,/input,/masks,20210521-p01-KJG_A01.TIF,well_mask.png,20210521,file:/input/20210521-p01-KJG_A01.TIF,p01,KJG,A01
-file:/input/20210521-p01-KJG_A02.TIF,file:/masks/well_mask.png,/input,/masks,20210521-p01-KJG_A02.TIF,well_mask.png,20210521,file:/input/20210521-p01-KJG_A02.TIF,p01,KJG,A02
-file:/input/20210521-p01-KJG_A03.TIF,file:/masks/well_mask.png,/input,/masks,20210521-p01-KJG_A03.TIF,well_mask.png,20210521,file:/input/20210521-p01-KJG_A03.TIF,p01,KJG,A03
-file:/input/20210521-p01-KJG_A04.TIF,file:/masks/well_mask.png,/input,/masks,20210521-p01-KJG_A04.TIF,well_mask.png,20210521,file:/input/20210521-p01-KJG_A04.TIF,p01,KJG,A04
-file:/input/20210521-p01-KJG_A05.TIF,file:/masks/well_mask.png,/input,/masks,20210521-p01-KJG_A05.TIF,well_mask.png,20210521,file:/input/20210521-p01-KJG_A05.TIF,p01,KJG,A05
-file:/input/20210521-p01-KJG_A06.TIF,file:/masks/well_mask.png,/input,/masks,20210521-p01-KJG_A06.TIF,well_mask.png,20210521,file:/input/20210521-p01-KJG_A06.TIF,p01,KJG,A06
-file:/input/20210521-p01-KJG_A07.TIF,file:/masks/well_mask.png,/input,/masks,20210521-p01-KJG_A07.TIF,well_mask.png,20210521,file:/input/20210521-p01-KJG_A07.TIF,p01,KJG,A07
+file:/input/20210521-p01-KJG_A01.TIF,file:/masks/well_mask.png,input,masks,20210521-p01-KJG_A01.TIF,well_mask.png,20210521,file:/input/20210521-p01-KJG_A01.TIF,p01,KJG,A01
+file:/input/20210521-p01-KJG_A02.TIF,file:/masks/well_mask.png,input,masks,20210521-p01-KJG_A02.TIF,well_mask.png,20210521,file:/input/20210521-p01-KJG_A02.TIF,p01,KJG,A02
+file:/input/20210521-p01-KJG_A03.TIF,file:/masks/well_mask.png,input,masks,20210521-p01-KJG_A03.TIF,well_mask.png,20210521,file:/input/20210521-p01-KJG_A03.TIF,p01,KJG,A03
+file:/input/20210521-p01-KJG_A04.TIF,file:/masks/well_mask.png,input,masks,20210521-p01-KJG_A04.TIF,well_mask.png,20210521,file:/input/20210521-p01-KJG_A04.TIF,p01,KJG,A04
+file:/input/20210521-p01-KJG_A05.TIF,file:/masks/well_mask.png,input,masks,20210521-p01-KJG_A05.TIF,well_mask.png,20210521,file:/input/20210521-p01-KJG_A05.TIF,p01,KJG,A05
+file:/input/20210521-p01-KJG_A06.TIF,file:/masks/well_mask.png,input,masks,20210521-p01-KJG_A06.TIF,well_mask.png,20210521,file:/input/20210521-p01-KJG_A06.TIF,p01,KJG,A06
+file:/input/20210521-p01-KJG_A07.TIF,file:/masks/well_mask.png,input,masks,20210521-p01-KJG_A07.TIF,well_mask.png,20210521,file:/input/20210521-p01-KJG_A07.TIF,p01,KJG,A07
