@@ -45,12 +45,8 @@ metadata <- metadata_files %>%
 output_df <- readr::read_csv(stringr::str_c(output_dir,
                                             'StraightenedWorms.csv',
                                             sep = '/')) %>% 
-                               janitor::clean_names() %>% 
-  left_join(., readr::read_csv(stringr::str_c(output_dir,
-                                              'Image.csv',
-                                              sep = '/')) %>% 
-              janitor::clean_names()) %>% 
-  rename(well = metadata_well)
+  left_join(., readr::read_csv(stringr::str_c(output_dir, 'Image.csv',  sep = '/'))) %>% 
+  rename(well = Metadata_Well)
 
 final_df <- dplyr::left_join(metadata, output_df) %>%
   readr::write_csv(path = stringr::str_c(output_dir, '/', plate, '_tidy.csv'))
