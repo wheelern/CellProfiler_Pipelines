@@ -5,13 +5,12 @@ library(tidyverse)
 args = commandArgs(trailingOnly = TRUE)
 
 plate <- args[1]
-wd <- args[2]
-mask <- args[3]
+mask <- args[2]
 # plate <- '20210521-p01-KJG_641'
 # wd <-'Users/njwheeler/Desktop'
 # mask <- 'well_mask.png'
 
-image_dir <- stringr::str_c('', wd, 'CellProfiler_Pipelines', 'projects', plate, 'raw_images', sep = '/')
+image_dir <- stringr::str_c(getwd(), 'CellProfiler_Pipelines', 'projects', plate, 'raw_images', sep = '/')
 
 input_files <- list.files(path = image_dir, pattern = '.*TIF$')
 
