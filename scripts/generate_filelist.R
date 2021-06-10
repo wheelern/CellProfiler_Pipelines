@@ -17,8 +17,8 @@ input_files <- list.files(path = image_dir, pattern = '.*TIF$')
 load_csv <- dplyr::tibble(
   Group_Number = 1,
   Group_Index = seq(1, length(input_files)),
-  URL_RawImage = stringr::str_c('file:', wd, 'CellProfiler_Pipelines', 'projects', plate, 'raw_images', input_files, sep = '/'),
-  URL_WellMask = stringr::str_c('file:', wd, 'CellProfiler_Pipelines', 'masks', mask, sep = '/'),
+  URL_RawImage = stringr::str_c('file:', getwd(), 'CellProfiler_Pipelines', 'projects', plate, 'raw_images', input_files, sep = '/'),
+  URL_WellMask = stringr::str_c('file:', getwd(), 'CellProfiler_Pipelines', 'masks', mask, sep = '/'),
   PathName_RawImage = stringr::str_remove(URL_RawImage, pattern = "/[^/]*$") %>% str_remove(., 'file:'),
   PathName_WellMask = stringr::str_remove(URL_WellMask, mask) %>% str_remove(., 'file:') %>%  str_remove(., '/$'),
   FileName_RawImage = input_files,
@@ -38,6 +38,6 @@ load_csv <- dplyr::tibble(
   Metadata_Well = stringr::str_extract(FileName_RawImage, '[A-H][0,1]{1}[0-9]{1}')
 )
 
-readr::write_csv(load_csv, path = stringr::str_c('/', wd, '/CellProfiler_Pipelines/', 'metadata/', plate, '.csv', sep = ''))
+readr::write_csv(load_csv, path = stringr::str_c('/', getwd(), '/CellProfiler_Pipelines/', 'metadata/', plate, '.csv', sep = ''))
 
 
