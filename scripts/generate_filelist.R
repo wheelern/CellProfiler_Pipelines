@@ -38,6 +38,6 @@ load_csv <- dplyr::tibble(
   Metadata_Well = stringr::str_extract(FileName_RawImage, '[A-H][0,1]{1}[0-9]{1}')
 )
 
-readr::write_csv(load_csv, path = stringr::str_c('/', getwd(), '/CellProfiler_Pipelines/', 'metadata/', plate, '.csv', sep = ''))
+readr::write_csv(load_csv, file = stringr::str_c('/', getwd(), '/CellProfiler_Pipelines/', 'metadata/', 'image_paths.csv', sep = ''))
 
 

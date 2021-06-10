@@ -2,16 +2,16 @@ CellProfiler Pipeline: http://www.cellprofiler.org
 Version:5
 DateRevision:413
 GitHash:
-ModuleCount:12
+ModuleCount:13
 HasImagePlaneDetails:False
 
 LoadData:[module_num:1|svn_version:'Unknown'|variable_revision_number:6|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
-    Input data file location:Default Input Folder|input/
-    Name of the file:images_metadata_small.csv
+    Input data file location:Default Input Folder sub-folder|metadata
+    Name of the file:image_paths.csv
     Load images based on this data?:Yes
     Base image location:Default Input Folder|
     Process just a range of rows?:No
-    Rows to process:1,100000
+    Rows to process:1,2
     Group images by metadata?:No
     Select metadata tags for grouping:
     Rescale intensities?:Yes
@@ -114,7 +114,7 @@ UntangleWorms:[module_num:8|svn_version:'Unknown'|variable_revision_number:2|sho
     Overlap style:Both
     Name the output overlapping worm objects:OverlappingWorms
     Name the output non-overlapping worm objects:NonOverlappingWorms
-    Training set file location:Elsewhere...|worm_models/
+    Training set file location:Default Input Folder sub-folder|worm_models
     Training set file name:WheelerAdultTrainingSet.xml
     Use training set weights?:Yes
     Overlap weight:5.0
@@ -145,7 +145,7 @@ StraightenWorms:[module_num:9|svn_version:'Unknown'|variable_revision_number:3|s
     Select the input untangled worm objects:NonOverlappingWorms
     Name the output straightened worm objects:StraightenedWorms
     Worm width:20
-    Training set file location:Elsewhere...|worm_models/
+    Training set file location:Default Input Folder sub-folder|worm_models
     Training set file name:WheelerAdultTrainingSet.xml
     Image count:1
     Measure intensity distribution?:No
@@ -161,31 +161,7 @@ MeasureObjectSizeShape:[module_num:10|svn_version:'Unknown'|variable_revision_nu
     Calculate the Zernike features?:No
     Calculate the advanced features?:No
 
-ExportToSpreadsheet:[module_num:11|svn_version:'Unknown'|variable_revision_number:13|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
-    Select the column delimiter:Comma (",")
-    Add image metadata columns to your object data file?:Yes
-    Add image file and folder names to your object data file?:No
-    Select the measurements to export:Yes
-    Calculate the per-image mean values for object measurements?:No
-    Calculate the per-image median values for object measurements?:No
-    Calculate the per-image standard deviation values for object measurements?:No
-    Output file location:Default Output Folder|/Volumes/mzamanian/ImageXpress/proc/20210521-p05-KJG_645
-    Create a GenePattern GCT file?:No
-    Select source of sample row name:Metadata
-    Select the image to use as the identifier:None
-    Select the metadata to use as the identifier:None
-    Export all measurement types?:No
-    Press button to select measurements:StraightenedWorms|Number_Object_Number,StraightenedWorms|AreaShape_MeanRadius,StraightenedWorms|AreaShape_Perimeter,StraightenedWorms|AreaShape_MajorAxisLength,StraightenedWorms|AreaShape_MaximumRadius,StraightenedWorms|AreaShape_Extent,StraightenedWorms|AreaShape_Area,StraightenedWorms|AreaShape_FormFactor,StraightenedWorms|AreaShape_MedianRadius,StraightenedWorms|AreaShape_Eccentricity,StraightenedWorms|AreaShape_Solidity,StraightenedWorms|AreaShape_MaxFeretDiameter,StraightenedWorms|AreaShape_Compactness,StraightenedWorms|AreaShape_MinorAxisLength,StraightenedWorms|AreaShape_EquivalentDiameter,StraightenedWorms|AreaShape_MinFeretDiameter,StraightenedWorms|AreaShape_EulerNumber
-    Representation of Nan/Inf:NaN
-    Add a prefix to file names?:No
-    Filename prefix:MyExpt_
-    Overwrite existing files without warning?:Yes
-    Data to export:StraightenedWorms
-    Combine these object measurements with those of the previous object?:No
-    File name:\g<Date>-\g<Plate>-\g<Researcher>_straightened_worms.csv
-    Use the object name for the file name?:No
-
-SaveImages:[module_num:12|svn_version:'Unknown'|variable_revision_number:15|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+SaveImages:[module_num:11|svn_version:'Unknown'|variable_revision_number:15|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
     Select the type of image to save:Image
     Select the image to save:StraightenedImage
     Select method for constructing file names:Single name
@@ -195,7 +171,7 @@ SaveImages:[module_num:12|svn_version:'Unknown'|variable_revision_number:15|show
     Append a suffix to the image file name?:No
     Text to append to the image name:
     Saved file format:png
-    Output file location:Elsewhere...|/Volumes/mzamanian/ImageXpress/proc/20210521-p05-KJG_645/straightened_worms
+    Output file location:Elsewhere...|output/straightened_worms
     Image bit depth:8-bit integer
     Overwrite existing files without warning?:Yes
     When to save:Every cycle
@@ -203,3 +179,39 @@ SaveImages:[module_num:12|svn_version:'Unknown'|variable_revision_number:15|show
     Create subfolders in the output folder?:No
     Base image folder:Elsewhere...|
     How to save the series:T (Time)
+
+ExportToSpreadsheet:[module_num:12|svn_version:'Unknown'|variable_revision_number:13|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:True|wants_pause:False]
+    Select the column delimiter:Comma (",")
+    Add image metadata columns to your object data file?:Yes
+    Add image file and folder names to your object data file?:Yes
+    Select the measurements to export:Yes
+    Calculate the per-image mean values for object measurements?:No
+    Calculate the per-image median values for object measurements?:No
+    Calculate the per-image standard deviation values for object measurements?:No
+    Output file location:Elsewhere...|output/data/
+    Create a GenePattern GCT file?:No
+    Select source of sample row name:Metadata
+    Select the image to use as the identifier:None
+    Select the metadata to use as the identifier:None
+    Export all measurement types?:Yes
+    Press button to select measurements:Image|Metadata_FileLocation,Image|Metadata_Series,Image|Metadata_Plate,Image|Metadata_Date,Image|Metadata_Frame,Image|Metadata_Researcher,Image|Metadata_Well,StraightenedWorms|AreaShape_MinorAxisLength,StraightenedWorms|AreaShape_Center_X,StraightenedWorms|AreaShape_Center_Y,StraightenedWorms|AreaShape_BoundingBoxMaximum_Y,StraightenedWorms|AreaShape_BoundingBoxMaximum_X,StraightenedWorms|AreaShape_EquivalentDiameter,StraightenedWorms|AreaShape_Perimeter,StraightenedWorms|AreaShape_MajorAxisLength,StraightenedWorms|AreaShape_Compactness,StraightenedWorms|AreaShape_Solidity,StraightenedWorms|AreaShape_BoundingBoxMinimum_Y,StraightenedWorms|AreaShape_BoundingBoxMinimum_X,StraightenedWorms|AreaShape_BoundingBoxArea,StraightenedWorms|AreaShape_MeanRadius,StraightenedWorms|AreaShape_MaxFeretDiameter,StraightenedWorms|AreaShape_Area,StraightenedWorms|AreaShape_Eccentricity,StraightenedWorms|AreaShape_MaximumRadius,StraightenedWorms|AreaShape_MinFeretDiameter,StraightenedWorms|AreaShape_EulerNumber,StraightenedWorms|AreaShape_Orientation,StraightenedWorms|AreaShape_FormFactor,StraightenedWorms|AreaShape_Extent,StraightenedWorms|AreaShape_MedianRadius
+    Representation of Nan/Inf:NaN
+    Add a prefix to file names?:No
+    Filename prefix:MyExpt_
+    Overwrite existing files without warning?:Yes
+    Data to export:Do not use
+    Combine these object measurements with those of the previous object?:No
+    File name:DATA.csv
+    Use the object name for the file name?:Yes
+
+CreateBatchFiles:[module_num:13|svn_version:'Unknown'|variable_revision_number:8|show_window:False|notes:[]|batch_state:array([], dtype=uint8)|enabled:False|wants_pause:False]
+    Store batch files in default output folder?:No
+    Output folder path:/Users/njwheeler/Desktop/CellProfiler_Pipelines/batch_files
+    Are the cluster computers running Windows?:No
+    Hidden- in batch mode:No
+    Hidden- in distributed mode:No
+    Hidden- default input folder at time of save:/Users/njwheeler/Desktop/CellProfiler_Pipelines
+    Hidden- revision number:0
+    Hidden- from old matlab:No
+    Local root path:/Users/njwheeler/Desktop/
+    Cluster root path:
