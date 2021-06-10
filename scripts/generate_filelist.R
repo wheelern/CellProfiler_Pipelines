@@ -1,6 +1,6 @@
 library(tidyverse)
 
-setwd('~/Desktop/')
+# setwd('~/Desktop/')
 
 args = commandArgs(trailingOnly = TRUE)
 
