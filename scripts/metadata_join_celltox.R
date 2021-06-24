@@ -43,10 +43,8 @@ metadata <- metadata_files %>%
   dplyr::summarise(dplyr::across(species:other, collapse_rows))
 
 output_df <- readr::read_csv(stringr::str_c(output_dir,
-                                            stringr::str_remove(plate, '_[0-9]{2,4}'),
-                                            '_.csv',
+                                            stringr::str_remove(plate, '_[0-9]*$') %>% stringr::str_c(., '_greenworms.csv'),
                                             sep = '/')) %>% 
-  left_join(., readr::read_csv(stringr::str_c(output_dir, 'Image.csv',  sep = '/'))) %>% 
   rename(well = Metadata_Well)
 
 final_df <- dplyr::left_join(metadata, output_df) %>%
