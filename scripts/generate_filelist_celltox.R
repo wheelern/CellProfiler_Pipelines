@@ -8,7 +8,7 @@ plate <- args[1]
 wd <- getwd() %>% str_remove(., '^/')
 # plate <- '20201217-p10-NJW_346'
 
-image_dir <- stringr::str_c('', wd, 'CellProfiler_Pipelines', 'projects', plate, 'raw_images', sep = '/')
+image_dir <- stringr::str_c(wd, 'CellProfiler_Pipelines', 'projects', plate, 'raw_images', sep = '/')
 
 input_files <- list.files(path = image_dir, pattern = '.*TIF$')
 tl <- input_files %>% magrittr::extract(dplyr::matches("w1", vars = .))
