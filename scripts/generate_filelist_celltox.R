@@ -4,7 +4,7 @@ library(tidyverse)
 
 args = commandArgs(trailingOnly = TRUE)
 
-# plate <- args[1]
+plate <- args[1]
 # plate <- '20201217-p10-NJW_346'
 
 image_dir <- stringr::str_c(getwd(), 'CellProfiler_Pipelines', 'projects', plate, 'raw_images', sep = '/')

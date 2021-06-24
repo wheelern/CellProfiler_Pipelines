@@ -3,7 +3,6 @@ library(tidyverse)
 args = commandArgs(trailingOnly = TRUE)
 
 plate <- args[1]
-print(plate)
 # plate <- '20210521-p01-KJG_641'
 metadata_dir <- stringr::str_c('output', 'metadata', plate, sep = '/')
 output_dir <- stringr::str_c('output', 'data', sep = '/')
