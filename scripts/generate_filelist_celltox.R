@@ -1,13 +1,14 @@
 library(tidyverse)
 
-# setwd('/Users/njwheeler/Desktop/')
+setwd('/Users/njwheeler/Desktop/')
 
 args = commandArgs(trailingOnly = TRUE)
 
 plate <- args[1]
-# plate <- '20201217-p10-NJW_346'
+wd <- getwd() %>% str_remove(., '^/')
+plate <- '20201217-p10-NJW_346'
 
-image_dir <- stringr::str_c(getwd(), 'CellProfiler_Pipelines', 'projects', plate, 'raw_images', sep = '/')
+image_dir <- stringr::str_c('', wd, 'CellProfiler_Pipelines', 'projects', plate, 'raw_images', sep = '/')
 
 input_files <- list.files(path = image_dir, pattern = '.*TIF$')
 tl <- input_files %>% magrittr::extract(dplyr::matches("w1", vars = .))
@@ -16,10 +17,10 @@ gfp <- input_files %>% magrittr::extract(dplyr::matches("w2", vars = .))
 load_csv <- dplyr::tibble(
   Group_Number = 1,
   Group_Index = seq(1, length(input_files) / 2),
-  URL_GFP = stringr::str_c('file:', getwd(), 'CellProfiler_Pipelines', 'projects', plate, 'raw_images', gfp, sep = '/'),
-  URL_TransmittedLight = stringr::str_c('file:', getwd(), 'CellProfiler_Pipelines', 'projects', plate, 'raw_images', tl, sep = '/'),
-  PathName_GFP = stringr::str_remove(URL_GFP, 'file:') %>% stringr::str_remove(., pattern = "^/"),
-  PathName_TransmittedLight = stringr::str_remove(URL_TransmittedLight, 'file:') %>%  stringr::str_remove(., pattern = "^/"),
+  URL_GFP = stringr::str_c('file:', wd, 'CellProfiler_Pipelines', 'projects', plate, 'raw_images', gfp, sep = '/'),
+  URL_TransmittedLight = stringr::str_c('file:', wd, 'CellProfiler_Pipelines', 'projects', plate, 'raw_images', tl, sep = '/'),
+  PathName_GFP = stringr::str_remove(URL_GFP, 'file:'),
+  PathName_TransmittedLight = stringr::str_remove(URL_TransmittedLight, 'file:'),
   FileName_GFP = gfp,
   FileName_TransmittedLight = tl,
   Series_GFP = 0,
