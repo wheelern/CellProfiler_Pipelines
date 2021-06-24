@@ -1,12 +1,12 @@
 library(tidyverse)
 
-setwd('/Users/njwheeler/Desktop/')
+# setwd('/Users/njwheeler/Desktop/')
 
 args = commandArgs(trailingOnly = TRUE)
 
 plate <- args[1]
 wd <- getwd() %>% str_remove(., '^/')
-plate <- '20201217-p10-NJW_346'
+# plate <- '20201217-p10-NJW_346'
 
 image_dir <- stringr::str_c('', wd, 'CellProfiler_Pipelines', 'projects', plate, 'raw_images', sep = '/')
 
