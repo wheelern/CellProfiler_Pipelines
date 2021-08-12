@@ -37,14 +37,14 @@ collapse_rows <- function(x) {
 }
 
 metadata <- metadata_files %>%
-  purrr::pmap_dfr(get_metadata) %>% 
-  dplyr::select(plate, well, row, col, species, stages, strain, treatment, conc, other) %>%
+  purrr::pmap_dfr(get_metadata) %>%
+  dplyr::select(plate, well, row, col, species, stages, strains, treatment, conc, other) %>%
   dplyr::group_by(plate, well, row, col) %>%
   dplyr::summarise(dplyr::across(species:other, collapse_rows))
 
 output_df <- readr::read_csv(stringr::str_c(output_dir,
                                             stringr::str_remove(plate, '_[0-9]*$') %>% stringr::str_c(., '_greenworms.csv'),
-                                            sep = '/')) %>% 
+                                            sep = '/')) %>%
   rename(well = Metadata_Well)
 
 final_df <- dplyr::left_join(metadata, output_df) %>%
