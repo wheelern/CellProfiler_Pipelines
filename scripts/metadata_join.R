@@ -37,15 +37,15 @@ collapse_rows <- function(x) {
 }
 
 metadata <- metadata_files %>%
-  purrr::pmap_dfr(get_metadata) %>% 
-  dplyr::select(plate, well, row, col, species, stages, strain, treatment, conc, other) %>%
+  purrr::pmap_dfr(get_metadata) %>%
+  dplyr::select(plate, well, row, col, species, stages, strains, treatment, conc, other) %>%
   dplyr::group_by(plate, well, row, col) %>%
   dplyr::summarise(dplyr::across(species:other, collapse_rows))
 
 output_df <- readr::read_csv(stringr::str_c(output_dir,
                                             'StraightenedWorms.csv',
-                                            sep = '/')) %>% 
-  left_join(., readr::read_csv(stringr::str_c(output_dir, 'Image.csv',  sep = '/'))) %>% 
+                                            sep = '/')) %>%
+  left_join(., readr::read_csv(stringr::str_c(output_dir, 'Image.csv',  sep = '/'))) %>%
   rename(well = Metadata_Well)
 
 final_df <- dplyr::left_join(metadata, output_df) %>%
