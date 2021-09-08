@@ -24,7 +24,8 @@ get_metadata <- function(...) {
 
   df <- tibble(...)
 
-  data <- readr::read_csv(df$path, col_names = sprintf("%02d", seq(1:12))) %>%
+  data <- readr::read_csv(df$path, col_names = sprintf("%02d", seq(1:12)),
+                          col_types = 'cccccccccccc') %>%
     dplyr::mutate(row = LETTERS[1:8], .before = `01`) %>%
     tidyr::pivot_longer(cols = `01`:`12`, names_to = 'col', values_to = df$category) %>%
     dplyr::mutate(well = stringr::str_c(row, col), plate = df$plate)
